@@ -1,42 +1,44 @@
-.body-class {
-   
-    background-color: #111;
-    color: white;
-    overflow-x: hidden;
-  }
-  
-  h1, h2 {
-    font-weight: 400;
-    max-width: none;
-  }
 
-  .header-section{
-    padding: 0 15px;
-    text-align: center;
-    margin: 70vh auto 50vh;
-  }
-  
-  .comparisonSection {
-    position: relative;
-    padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
-  }
-  .comparisonImage {
-    width: 100%;
-    height: 100%;
-  }
-  .afterImage {
-    position: absolute;
-    overflow: hidden;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Righteous&display=swap');
+
+
+.video-background {
+    background: #000;
+    position: fixed;
     top: 0;
-    transform: translate(100%, 0px);
-  }
-  .afterImage img {
-    transform: translate(-100%, 0px);
-  }
-  .comparisonImage img {
-    width: 100%;
-    height: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -99;
+
+}
+.video-background::after {
+    display: block;
+    content: '';
     position: absolute;
     top: 0;
-  }
-  
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.75)
+}
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+    .video-foreground { width: 300%; left: -100%; }
+}
+
+
