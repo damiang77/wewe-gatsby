@@ -10,6 +10,8 @@ import {Container, Row, Col} from 'react-bootstrap';
 import Menu from "../components/menu";
 import About from "../components/about";
 import HeroVideo from "../components/HeroVideo/HeroVideo";
+import Companies from "../components/companies";
+import Offers from "../components/offers/offers";
 
 const IndexPage = () => {
  
@@ -24,6 +26,8 @@ const IndexPage = () => {
   <Menu/>
   <HeroVideo/>
   <About/>
+  <Companies/>
+  <Offers/>
 </>
   )
 }

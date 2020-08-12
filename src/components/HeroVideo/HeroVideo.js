@@ -17,7 +17,7 @@ const VideoBackground = styled.div`
  overflow: hidden;
   & iframe {
     position: absolute;
-    top: -7%;
+    top: -9%;
     left: -10%;
     width: 125%;
     height: 125%;

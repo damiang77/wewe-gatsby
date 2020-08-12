@@ -6,7 +6,8 @@ import { Link } from "gatsby"
 import logo from "../images/logo.png"
 import fb from "../images/fb.svg"
 import instagram from "../images/in.svg"
-import youtube from "../images/yt.svg"
+import YouTube from "../images/yt.svg"
+
 
 const NavigationWrapper = styled.nav`
   position: fixed;
@@ -76,24 +77,16 @@ const Logo = styled.img`
   height: 28px;
 `
 const Social = styled.img`
+  flex: none;
+  transition: fill 0.25s;
   margin-top: 24px;
   width: 24px;
   height: 24px;
-  &:hover {
-    path {
-      fill: #f7e625;
-    }
-  }
-`
-const Icon = styled.svg.attrs({
-  version: "1.1",
-  xmlns: "http://www.w3.org/2000/svg",
-  xmlnsXlink: "http://www.w3.org/1999/xlink",
-})``
 
-const Svg = styled(Icon)`
-  width: 24px;
-  height: 24px;
+  &:hover{
+    cursor: pointer;
+    fill: red;
+  }
 `
 
 const ContactButton = styled.button`
@@ -148,7 +141,8 @@ const menu = () => {
               <SocialWrapper>
                 <Social src={fb} alt="Facebook" />
                 <Social src={instagram} alt="Instagran" />
-                <Social src={youtube} alt="YouTube" />
+                <Social src={YouTube} alt="YouTube" />
+               
               </SocialWrapper>
             </RightMenu>
           </Navigation>
