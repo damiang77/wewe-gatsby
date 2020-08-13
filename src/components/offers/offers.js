@@ -55,6 +55,7 @@ const VideoWrapper = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
+  justify-content: center;
   & > video {
     width: 100%;
   }
