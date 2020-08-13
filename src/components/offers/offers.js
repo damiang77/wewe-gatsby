@@ -12,6 +12,8 @@ import fotoVideo from "../../shortVideo/foto-compressed.mp4"
 import animacjaVideo from "../../shortVideo/animacja-compressed.mp4"
 import storyboardVideo from "../../shortVideo/storyboard-compressed.mp4"
 import cgiVideo from "../../shortVideo/cgi-compressed.mp4"
+import socialVideo from "../../shortVideo/social-compressed.mp4"
+import dronVideo from "../../shortVideo/dron-compressed.mp4"
 
 const Heading = styled.h2`
   font-family: "Righteous", cursive;
@@ -79,6 +81,12 @@ const Offers = () => {
       case 4:
         component = <Video key="cgi" src={cgiVideo} />
         break
+        case 5:
+        component = <Video key="social" src={socialVideo} />
+        break
+        case 7:
+          component = <Video key="dron" src={dronVideo} />
+          break
       default:
         return "Something went wrong. Please reload the page."
     }
