@@ -19,7 +19,7 @@ const Background = (props) => (
       }
     `}
     render={data => {
-      // Set ImageData.
+   
       const imageData = data.image.childImageSharp.fluid
       return (
         <BackgroundImage
@@ -38,9 +38,10 @@ const Background = (props) => (
 const StyledBackground = styled(Background)`
   width: 100%;
   background-position: bottom center;
-  background-repeat: repeat-y;
   background-size: cover;
   min-height: 700px;
+  padding-top:4rem;
+  padding-bottom:4rem;
 `
 
 export default StyledBackground
