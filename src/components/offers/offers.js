@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components"
 
@@ -64,6 +64,8 @@ const VideoWrapper = styled.div`
 const Offers = () => {
   const [chosenVideo, setChosenVideo] = useState(0)
   const [video, setVideo] = useState(organizacjaVideo)
+
+
 
   const renderSwitchVideo = chosenVideo => {
     let component
@@ -181,6 +183,7 @@ const Offers = () => {
             </Col>
             <Col>
               <VideoWrapper>
+               
                 <Video src={video} />
               </VideoWrapper>
             </Col>

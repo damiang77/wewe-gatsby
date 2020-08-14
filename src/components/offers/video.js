@@ -12,7 +12,7 @@ const Video = props => {
     <>
       {isLoading && <div className="loader"></div>}
 
-      <ReactPlayer url={props.src} playing={true} loop={true} onReady={()=> setIsLoading(false)}/>
+      <ReactPlayer url={props.src} playing={true} loop={true} muted={true} onReady={()=> setIsLoading(false)}/>
       
     </>
   )
