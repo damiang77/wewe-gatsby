@@ -12,6 +12,7 @@ import About from "../components/about";
 import HeroVideo from "../components/HeroVideo/HeroVideo";
 import Companies from "../components/companies";
 import Offers from "../components/offers/offers";
+import Portfolio from "../components/portfolio/portfolio"
 
 const IndexPage = () => {
  
@@ -28,6 +29,7 @@ const IndexPage = () => {
   <About/>
   <Companies/>
   <Offers/>
+  <Portfolio/>
 </>
   )
 }
