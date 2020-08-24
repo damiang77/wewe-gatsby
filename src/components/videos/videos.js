@@ -1,7 +1,25 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-
+import { Container, Row} from "react-bootstrap"
 import Video from "./video/video.js"
+import styled from "styled-components"
+
+const Background = styled.div`
+  background-color: #1f2021;
+  min-height: 400px;
+  width: 100%;
+  padding-top: 100px;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  position: relative;
+  z-index: 100;
+  color: white;
+  & a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`
 
 const query = graphql`
   {
@@ -20,8 +38,8 @@ const query = graphql`
           relativePath
           publicURL
           childImageSharp {
-            fixed(width: 470) {
-              ...GatsbyImageSharpFixed
+            fluid(quality: 90) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -40,12 +58,16 @@ const Videos = () => {
   } = data
 
   return (
-<>
-      {videos.map((video, index) => {
-        return <Video key={index} video={video}/>
-      })}
-</>
+    <Background>
+      <Container fluid>
+        <Row>
+          {videos.map((video, index) => {
+            return <Video key={index} video={video} />
+          })}
+        </Row>
+      </Container>
+    </Background>
   )
 }
 
-export default Videos;
+export default Videos
