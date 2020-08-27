@@ -4,14 +4,15 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Videos from "../videos/videos"
+import PortfolioGrid from "./PortfolioGrid";
 
 const Portfolio = () => {
     return (
-        <Container fluid>
-            <Row>
-                <Videos/>
-            </Row>
-        </Container>
+        <>
+  
+                <PortfolioGrid/>
+                
+        </>
     );
 };
 
