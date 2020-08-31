@@ -93,3 +93,17 @@ button, input[type="submit"], input[type="reset"] {
     transform: rotate(360deg);
   }
 }
+
+.photo-item{
+width:25%;
+margin-left:5px;
+margin-right:5px;
+margin-bottom: 10px;
+}
+
+@media (max-width: 900px){
+    .photo-item{
+        min-width:100%;
+        
+        }
+}

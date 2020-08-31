@@ -28,8 +28,8 @@ const IndexPage = () => {
   <HeroVideo/>
   <About/>
   <Companies/>
-  <Offers/>
-  <Portfolio/>
+ <Videos/>
+
 </>
   )
 }

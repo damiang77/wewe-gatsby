@@ -23,7 +23,6 @@ class PortfolioGrid extends Component {
         { id: 2, src: blackPixel },
         { id: 3, src: greenPixel },
       ],
-      searchTerm:''
     }
 
     this.element = React.createRef()
@@ -44,7 +43,7 @@ class PortfolioGrid extends Component {
             id: 4,
             username: "@stickermule",
             name: "Sticker Mule",
-            groups: "kot",
+            group: "kot",
             src:
               "https://images.unsplash.com/photo-1484244233201-29892afe6a2c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=14d236624576109b51e85bd5d7ebfbfc",
           },
@@ -52,7 +51,7 @@ class PortfolioGrid extends Component {
             id: 5,
             username: "@prostoroman",
             name: "Roman Logov",
-            groups: "[pies]",
+            group: "pies",
             src:
               "https://images.unsplash.com/photo-1465414829459-d228b58caf6e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=7a7080fc0699869b1921cb1e7047c5b3",
           },
@@ -60,7 +59,7 @@ class PortfolioGrid extends Component {
             id: 6,
             username: "@richienolan",
             name: "Richard Nolan",
-            groups: "[jez]",
+            group: "jez",
             src:
               "https://images.unsplash.com/photo-1478033394151-c931d5a4bdd6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=3c74d594a86e26c5a319f4e17b36146e",
           },
@@ -68,7 +67,7 @@ class PortfolioGrid extends Component {
             id: 7,
             username: "@wexor",
             name: "Wexor Tmg",
-            groups: "[kot]",
+            group: "kot",
             src:
               "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=11ff283143c782980861a442a957da8e",
           },
@@ -76,7 +75,7 @@ class PortfolioGrid extends Component {
             id: 8,
             username: "@dnevozhai",
             name: "Denys Nevozhai",
-            groups: "pies",
+            group: "pies",
             src:
               "https://images.unsplash.com/photo-1465447142348-e9952c393450?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=ea06c0f0700ec469fdcb32e0d4c2928e",
           },
@@ -84,7 +83,7 @@ class PortfolioGrid extends Component {
             id: 9,
             username: "@aronvandepol",
             name: "Aron Van de Pol",
-            groups: "pies",
+            group: "pies",
             src:
               "https://images.unsplash.com/photo-1469719847081-4757697d117a?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800&h=600&fit=crop&s=9a568bc48e42d3bb60c97c0eb3dc20ac",
           },
@@ -149,7 +148,7 @@ class PortfolioGrid extends Component {
 
   handleFilter = () =>{
       this.shuffle.filter((element)=>{
-          return element.dataset.groups.includes('pies');
+          element.dataset.groups.toLowerCase().includes('pies');
       });
   }
 
@@ -175,15 +174,15 @@ class PortfolioGrid extends Component {
  * @param {{ id: number, username: string, src: string, name: string }} props Component props.
  * @return {JSX.Element}
  */
-function PhotoItem({ id, src, groups}) {
+function PhotoItem({ id, src, group}) {
   return (
-    <Col key={id} lg="3" md="6" className="photo-item" data-groups={groups}>
+    <div key={id} lg="3" className="photo-item" data-group={group}>
       <div className="aspect aspect--4x3">
         <div className="aspect__inner">
           <img src={src} />
         </div>
       </div>
-    </Col>
+    </div>
   )
 }
 
