@@ -107,3 +107,8 @@ margin-bottom: 10px;
         
         }
 }
+
+.active {
+    border: #F7E625 2px solid;
+    color: #F7E625;
+}

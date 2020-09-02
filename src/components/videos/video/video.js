@@ -70,7 +70,7 @@ const Video = props => {
   const categoriesFromProps = props.video.categories;
   for (const key of categoriesFromProps) {
     categories += key.name;
-    categories += ", ";
+    categories += " ";
   }
 
   const handleClickItem = (e) =>{

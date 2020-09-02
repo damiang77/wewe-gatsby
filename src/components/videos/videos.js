@@ -1,6 +1,6 @@
-import React, {useEffect} from "react"
+import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container, Row} from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import Video from "./video/video.js"
 import styled from "styled-components"
 import Shuffle from "shufflejs"
@@ -19,6 +19,40 @@ const Background = styled.div`
     &:hover {
       text-decoration: none;
     }
+  }
+`
+
+const SelectMenuWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
+
+const SelectButton = styled.div`
+  margin: 5px;
+  padding: 3px 15px;
+  font-size: 16px;
+  color: "#898989";
+  transition-duration: 0.4s;
+  border-radius: 15px;
+  border: "transparent 2px solid";
+  font-weight: 700;
+  &:hover {
+    color: #f7e625;
+  }
+`
+const SelectButton2 = styled.div`
+  margin: 5px;
+  padding: 3px 15px;
+  font-size: 16px;
+  color: ${props =>
+    props.buttonId === props.currentSelectedItem ? "#F7E625" : "#898989"};
+  transition-duration: 0.4s;
+  border-radius: 15px;
+  border: "transparent 2px solid";
+  font-weight: 700;
+  &:hover {
+    color: #f7e625;
   }
 `
 
@@ -53,6 +87,8 @@ const query = graphql`
 `
 
 const Videos = () => {
+  const [idActiveTab, setIdActiveTab] = useState(0)
+
   const data = useStaticQuery(query)
   const {
     allStrapiVideos: { nodes: videos },
@@ -60,27 +96,49 @@ const Videos = () => {
 
   let element = React.createRef()
   let sizer = React.createRef()
+
   let shuffle;
-  useEffect(()=>{
+
+  useEffect(() => {
     shuffle = new Shuffle(element.current, {
       itemSelector: ".photo-item",
       sizer: sizer.current,
     })
-  })
+    console.log("shuffle reloaded")
+  },[])
 
-  const handleFilter = () =>{
-    shuffle.filter((element)=>{
-        return element.dataset.groups.includes('teledysk');
-    });
-}
+
+  const handleFilterAll = () => {
+    setIdActiveTab(0)
+    shuffle.filter();
+  }
+  const handleFilterMusicClips = () => {
+    setIdActiveTab(1);
+    shuffle.filter(element => {
+      return element.dataset.groups.includes("reklama")
+    })
+  
+  }
 
   return (
     <Background>
       <Container fluid>
-      <button onClick={handleFilter}>Fliter</button>
-        <div ref={element} style={{display: "flex"}}>
+        <SelectMenuWrapper>
+          <a className={idActiveTab == 0 && "active"}>
+            <button onClick={handleFilterAll}>Wszystko</button>
+          </a>
+          <a className={idActiveTab == 1 && "active"}>
+            <button
+              onClick={handleFilterMusicClips}
+    
+            >
+              Fliter2
+            </button>
+          </a>
+        </SelectMenuWrapper>
+        <div ref={element} style={{ display: "flex" }}>
           {videos.map((video, index) => {
-            return <Video key={index} video={video} ref={sizer}/>
+            return <Video key={index} video={video} ref={sizer} />
           })}
         </div>
       </Container>
