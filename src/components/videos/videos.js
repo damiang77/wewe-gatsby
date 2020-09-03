@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef, createRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Container, Row } from "react-bootstrap"
 import Video from "./video/video.js"
@@ -88,16 +88,17 @@ const query = graphql`
 
 const Videos = () => {
   const [idActiveTab, setIdActiveTab] = useState(0)
-
+  let notee;
   const data = useStaticQuery(query)
   const {
     allStrapiVideos: { nodes: videos },
   } = data
 
-  let element = React.createRef()
-  let sizer = React.createRef()
+  let element = React.useRef()
+  let sizer = React.useRef()
 
-  let shuffle;
+  
+let shuffle;
 
   useEffect(() => {
     shuffle = new Shuffle(element.current, {
@@ -105,36 +106,36 @@ const Videos = () => {
       sizer: sizer.current,
     })
     console.log("shuffle reloaded")
-  },[])
-
+  }, [notee])
 
   const handleFilterAll = () => {
-    setIdActiveTab(0)
-    shuffle.filter();
+    
+    shuffle.filter(element => {
+      return element.dataset.groups.includes("")
+    })
   }
   const handleFilterMusicClips = () => {
-    setIdActiveTab(1);
+  
     shuffle.filter(element => {
       return element.dataset.groups.includes("reklama")
     })
-  
   }
 
   return (
     <Background>
       <Container fluid>
         <SelectMenuWrapper>
-          <a className={idActiveTab == 0 && "active"}>
-            <button onClick={handleFilterAll}>Wszystko</button>
-          </a>
-          <a className={idActiveTab == 1 && "active"}>
-            <button
-              onClick={handleFilterMusicClips}
-    
-            >
-              Fliter2
-            </button>
-          </a>
+          <ButtonMain handleClick={handleFilterAll} activeTab={idActiveTab} currentButton={0}>
+            Wszystko
+          </ButtonMain>
+
+          <ButtonMain
+            handleClick={handleFilterMusicClips}
+            activeTab={idActiveTab}
+            id={1}
+          >
+            Fliter2
+          </ButtonMain>
         </SelectMenuWrapper>
         <div ref={element} style={{ display: "flex" }}>
           {videos.map((video, index) => {
@@ -143,6 +144,17 @@ const Videos = () => {
         </div>
       </Container>
     </Background>
+  )
+}
+
+const ButtonMain = props => {
+  return (
+  
+      <button
+        onClick={props.handleClick}
+        className={props.activeTab == props.currentButton ? "active" : ""}
+      >{props.children}</button>
+  
   )
 }
 
