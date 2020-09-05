@@ -120,9 +120,18 @@ const About = () => {
             ...GatsbyImageSharpFluid
           }
         }
+      },
+      allStrapiAboutUs {
+        nodes {
+          description
+          header
+        }
       }
     }
   `)
+ 
+  console.log(data)
+const {header, description} = data.allStrapiAboutUs.nodes[0]
 
   return (
     <Background>
@@ -133,13 +142,9 @@ const About = () => {
               <Col>
                 <TextBlockWrapper>
                   <SmallHeader>O nas</SmallHeader>
-                  <BigHeader>Tutaj można wrzucić jakieś dobre motto.</BigHeader>
+                  <BigHeader>{header}</BigHeader>
                   <Description>
-                    Tutaj coś o was. Home office because of actual corona
-                    situation, we kindly inform you, that we will send invoices
-                    only by email. Please forward it to responsible department –
-                    This is related to all companies which received invoices
-                    normally still by mail.
+                    {description}
                   </Description>
                    <Link to="/about"><LinkWrapper>więcej o nas</LinkWrapper></Link>
                 </TextBlockWrapper>

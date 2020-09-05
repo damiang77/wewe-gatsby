@@ -10,20 +10,21 @@ import c6 from "../images/6.png"
 import c7 from "../images/7.png"
 import c8 from "../images/8.png"
 import c9 from "../images/9.png"
-
-const Companies = () => {
-  const SectionWrapper = styled.section`
-    margin-top: 8rem;
-    margin-bottom: 8rem;
+const SectionWrapper = styled.section`
+  width: 100%;
+  height: 100%;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    background: #393939;
   `
   const Heading = styled.h2`
     font-size: 24px;
-    color: #434447;
+    color: #fff;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     text-align: center;
   `
-  const Companies = styled.div`
+  const CompaniesWrapper = styled.div`
     margin-top: 4rem;
     width: 100%;
   `
@@ -35,15 +36,20 @@ const Companies = () => {
     align-items: center;
   `
 
+const Companies = () => {
+  
+
   return (
-    <SectionWrapper>
+   <Container fluid>
+     <Row>
+     <SectionWrapper>
       <Container>
         <Row>
           <Col>
             <Heading>współpracowaliśmy z</Heading>
           </Col>
         </Row>
-        <Companies>
+        <CompaniesWrapper>
           <div className="row justify-content-center">
             <Col lg="2" xs="4">
               <ImageWrapper>
@@ -91,9 +97,11 @@ const Companies = () => {
               </ImageWrapper>
             </Col>
           </div>
-        </Companies>
+        </CompaniesWrapper>
       </Container>
     </SectionWrapper>
+     </Row>
+   </Container>
   )
 }
 

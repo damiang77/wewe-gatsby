@@ -4,14 +4,14 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Videos2 from "../components/videos/videos2"
+import Videos from "../components/videos/videos"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Menu from "../components/menu"
 import About from "../components/about"
 import HeroVideo from "../components/HeroVideo/HeroVideo"
 import Companies from "../components/companies"
 import Offers from "../components/offers/offers"
-import Portfolio from "../components/portfolio/portfolio"
+import HowWeWork from "../components/howWeWork/howWeWork"
 
 const IndexPage = () => {
   useEffect(() => {}, [])
@@ -23,7 +23,8 @@ const IndexPage = () => {
       <About />
       <Companies />
       <Offers/>
-      <Videos2 />
+      <Videos />
+      <HowWeWork/>
     </>
   )
 }

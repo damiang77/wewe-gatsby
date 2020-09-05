@@ -26,7 +26,7 @@ const VideoHover = styled.div`
   transition: all 0.3 ease;
   cursor: pointer;
   background: ${({ hovered }) =>
-    hovered ? "rgba(0, 0, 0, 0.3);" : "rgba(0, 0, 0, 0);"};
+    hovered ? "rgba(0, 0, 0, 0.4);" : "rgba(0, 0, 0, 0);"};
 `
 
 const StyledImg = styled(Img)`
@@ -43,7 +43,8 @@ max-width:25%;
 
 const HeaderText = styled.h3`
 position: absolute;
-font-size: 15px;
+font-size: 20px;
+text-shadow: 0 3px 6px rgba(0,0,0,.26);
 color: yellow;
 transition: all 0.4s ease;
 font-weight: 700;

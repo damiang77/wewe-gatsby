@@ -197,6 +197,8 @@ const Offers = () => {
 export default Offers
 
 /*
+ wywolanie {renderSwitchVideo(chosenVideo)}
+
   const renderSwitchVideo = chosenVideo => {
     let component
     switch (chosenVideo) {
