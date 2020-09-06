@@ -6,4 +6,11 @@
 
 // You can delete this file if you're not using it
 
+
 import "./src/styles/global.css"
+
+import React from "react"
+import { MessageContextProvider } from "./src/context/messageContext"
+export const wrapRootElement = ({ element }) => (
+  <MessageContextProvider>{element}</MessageContextProvider>
+)

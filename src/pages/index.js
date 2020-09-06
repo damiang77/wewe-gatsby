@@ -12,6 +12,7 @@ import HeroVideo from "../components/HeroVideo/HeroVideo"
 import Companies from "../components/companies"
 import Offers from "../components/offers/offers"
 import HowWeWork from "../components/howWeWork/howWeWork"
+import MessageModal from "../components/messageModal"
 
 const IndexPage = () => {
   useEffect(() => {}, [])
@@ -19,6 +20,7 @@ const IndexPage = () => {
   return (
     <>
       <Menu />
+      <MessageModal/>
       <HeroVideo />
       <About />
       <Companies />

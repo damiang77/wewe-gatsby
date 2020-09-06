@@ -1,13 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import logo from "../images/logo.png"
 import fb from "../images/fb.svg"
 import instagram from "../images/in.svg"
 import YouTube from "../images/yt.svg"
-
+import MessageContext from "../context/messageContext"
 
 const NavigationWrapper = styled.nav`
   position: fixed;
@@ -83,7 +83,7 @@ const Social = styled.img`
   width: 24px;
   height: 24px;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
     fill: red;
   }
@@ -95,8 +95,8 @@ const ContactButton = styled.button`
   border: 2px #f7e625 solid;
   cursor: pointer;
   font-size: 12px;
-  color: #f7e625;
-  background: transparent;
+  color: ${({isActive}) => isActive ? "black" : "#f7e625"};
+  background: ${({isActive}) => isActive ? "#f7e625" : "transparent"};;
   transition: all 0.3s ease-out;
   &:hover {
     border: 2px transparent solid;
@@ -111,45 +111,48 @@ const SocialWrapper = styled.div`
   margin-left: 20px;
 `
 
-const menu = () => {
+const Menu = () => {
+  const message = useContext(MessageContext)
+
   return (
-    <Container fluid>
-      <Row>
-        <NavigationWrapper>
-          <Navigation>
-            <LogoWrapper>
-              <Link to="/">
-                <Logo src={logo} alt="Logo wewe" />
-              </Link>
-            </LogoWrapper>
-            <MenuItems>
-              <MenuItem>
-                <Link to="">O nas</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="">Oferta</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="">Portfolio</Link>
-              </MenuItem>
-              <MenuItem>
-                <Link to="">Kontakt</Link>
-              </MenuItem>
-            </MenuItems>
-            <RightMenu>
-              <ContactButton>Wiadomość</ContactButton>
-              <SocialWrapper>
-                <Social src={fb} alt="Facebook" />
-                <Social src={instagram} alt="Instagran" />
-                <Social src={YouTube} alt="YouTube" />
-               
-              </SocialWrapper>
-            </RightMenu>
-          </Navigation>
-        </NavigationWrapper>
-      </Row>
-    </Container>
+   
+        <Container fluid>
+          <Row>
+            <NavigationWrapper>
+              <Navigation>
+                <LogoWrapper>
+                  <Link to="/">
+                    <Logo src={logo} alt="Logo wewe" />
+                  </Link>
+                </LogoWrapper>
+                <MenuItems>
+                  <MenuItem>
+                    <Link to="">O nas</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="">Oferta</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="">Portfolio</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="">Kontakt</Link>
+                  </MenuItem>
+                </MenuItems>
+                <RightMenu>
+                  <ContactButton onClick={message.toggleMessageBox} isActive={message.isOpen}>Wiadomość</ContactButton>
+                  <SocialWrapper>
+                    <Social src={fb} alt="Facebook" />
+                    <Social src={instagram} alt="Instagran" />
+                    <Social src={YouTube} alt="YouTube" />
+                  </SocialWrapper>
+                </RightMenu>
+              </Navigation>
+            </NavigationWrapper>
+          </Row>
+        </Container>
+
   )
 }
 
-export default menu
+export default Menu
