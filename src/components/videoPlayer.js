@@ -23,10 +23,17 @@ const ContactBoxWrapper = styled.div`
 const VideoPlayer = props => {
   const videoContext = useContext(VideoPlayerContext)
   const [isLoading, setIsLoading] = useState(true)
+const [change, setChange] = useState(false)
+ useEffect(()=>{
+     
+     return ()=>{
+         setIsLoading(true)
+         console.log("cleaned")
+     }
+ },[change])
 
- 
   const opts = {
-      height: "720",
+    height: "720",
     width: "1280",
     playerVars: {
       autoplay: 1,
@@ -42,19 +49,31 @@ const VideoPlayer = props => {
     zIndex: 1010,
   }
 
+  const handleCloseModal = () =>{
+    videoContext.toggleVideoPlayer();
+    setChange(!change)
+  }
+
+  function _onReady(event) {
+    setIsLoading(false);
+    console.log("video player ready")
+  }
+
   return (
     <>
       {videoContext.isOpen && (
         <BlurredBackground isVisible={videoContext.isOpen}>
-          <ContactBoxWrapper onClick={videoContext.toggleVideoPlayer} />
-          {isLoading && <div className="loader"></div>}
-          <YouTube
-            videoId={videoContext.videoUrl}
-            className="video-iframe"
-            opts={opts}
-            onReady={() => setIsLoading(false)}
-            style={style}
-          />
+          <ContactBoxWrapper onClick={handleCloseModal} />
+          {isLoading &&
+            <div className="loader"></div>}
+            <YouTube
+              videoId={videoContext.videoUrl}
+              className="video-iframe"
+              opts={opts}
+              onReady={_onReady}
+              style={style}
+            />
+          )
         </BlurredBackground>
       )}
     </>
