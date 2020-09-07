@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Col } from "react-bootstrap"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import VideoPlayerContext from "../../../context/VideoPlayerContext"
 
 const VideoContentWrapper = styled.div`
   width: 100%;
@@ -66,8 +67,12 @@ opacity: ${({ hovered }) => (hovered ? "1" : "0")};
 
 const Video = props => {
   const [hovered, setHovered] = useState(false)
-  let categories = "";
+  const videoContext = useContext(VideoPlayerContext)
+
   const {description, title, youtube_link} = props.video;
+
+  //Parse categories to a single string
+  let categories = "";
   const categoriesFromProps = props.video.categories;
   for (const key of categoriesFromProps) {
     categories += key.name;
@@ -76,8 +81,9 @@ const Video = props => {
 
   const handleClickItem = (e) =>{
     e.preventDefault();
-    alert(`${youtube_link}`)
+    videoContext.handleOpenVideo(youtube_link)
   }
+
 
   return (
     <div lg="3" className="photo-item" data-groups={categories}>

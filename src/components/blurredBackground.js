@@ -31,26 +31,21 @@ const BlurredBg = styled.div`
 Component with Blurred background. Scrolling is turned off when background is visible.
 Params:
 isVisible = true/false
-
 */
 
 const BlurredBackground = props => {
   const isVisible = props.isVisible
-  const toggle = props.toggleModal
   const html = document.querySelector('html')
+
   useEffect(() => {
     isVisible ? (html.style.overflow = 'hidden') : (html.style.overflow = 'unset');
       return ()=> html.style.overflow = 'unset';
    }, [isVisible]);
 
-   const clicked = () => {
-    if(toggle){
-      toggle();
-    }
-   }
+
   return (
     <BlurredBgWrapper isVisible={isVisible}>
-      <BlurredBg isVisible={isVisible}></BlurredBg>
+      <BlurredBg isVisible={isVisible}/>
       {props.children}
     </BlurredBgWrapper>
   )
