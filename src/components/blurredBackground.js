@@ -35,9 +35,9 @@ isVisible = true/false
 
 const BlurredBackground = props => {
   const isVisible = props.isVisible
-  const html = document.querySelector('html')
 
   useEffect(() => {
+    const html = document.querySelector('html')
     isVisible ? (html.style.overflow = 'hidden') : (html.style.overflow = 'unset');
       return ()=> html.style.overflow = 'unset';
    }, [isVisible]);

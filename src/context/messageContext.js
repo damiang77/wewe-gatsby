@@ -1,6 +1,10 @@
 import React, { Component, createContext } from "react";
 
-const MessageContext = createContext();
+const defaultState = {
+  isOpen: false
+}
+
+const MessageContext = createContext(defaultState);
 
 class MessageContextProvider extends Component {
   state = {

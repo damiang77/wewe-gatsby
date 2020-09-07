@@ -1,6 +1,9 @@
 import React, { Component, createContext } from "react";
-
-const VideoPlayerContext = createContext();
+const defaultState = {
+    isOpen: false,
+    videoUrl: ""
+}
+const VideoPlayerContext = createContext(defaultState);
 
 class VideoPlayerContextProvider extends Component {
   state = {
