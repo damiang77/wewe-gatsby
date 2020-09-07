@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import BlurredBackground from "./blurredBackground"
 import MessageContext from "../context/messageContext"
@@ -7,7 +7,7 @@ const ContactBoxWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 1099;
+  z-index: 1001;
   top: 0;
   left: 0;
   bottom: 0;
@@ -22,10 +22,11 @@ const ContactForm = styled.form`
   min-height: 400px;
   background: #1f2021;
   position: relative;
-  z-index: 1000;
+  z-index: 1002;
   display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
   border-radius: 15px;
   padding: 25px;
+  color: #fff;
 `
 const CloseForm = styled.div`
   position: absolute;
@@ -37,15 +38,24 @@ const CloseForm = styled.div`
   font-weight: 700;
   cursor: pointer;
 `
+const RowWrapper = styled.div`
+padding-bottom:15px;
+`
+const Label = styled.label`
+  font-size: 12px;
+  color: #fff;
+`
 const Input = styled.input`
   background: transparent;
   border: 0;
   border-radius: 0;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   padding: 3px 15px 3px 15px;
+  font-size: 14px;
   color: #fff;
   &:focus {
     background: transparent;
+    color: #fff;
   }
 `
 const TextArea = styled.textarea`
@@ -53,70 +63,128 @@ const TextArea = styled.textarea`
   border: 0;
   border-radius: 0;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 3px 5px 3px 5px;
+  padding: 3px 5px 3px 15px;
+  font-size: 14px;
   color: #fff;
   &:focus {
     background: transparent;
+    color: #fff;
+  }
+`
+
+const Header = styled.h2`
+  font-size: 32px;
+  font-family: "Righteous", cursive;
+  font-weight: 700;
+  margin-bottom: 50px;
+`
+
+const Paragraph = styled.p`
+  font-size: 12px;
+  line-height: 1.5;
+`
+const ContactButton = styled.button`
+  border-radius: 30px;
+  padding: 3px 15px;
+  border: 2px #f7e625 solid;
+  cursor: pointer;
+  font-size: 16px;
+  color: "#f7e625";
+  background: "transparent";
+  transition: all 0.3s ease-out;
+  &:hover {
+    border: 2px transparent solid;
+    background: #f7e625;
+    color: #212529;
+  }
+  &:disabled {
+    border: 2px grey solid;
+    cursor: not-allowed;
+    &:hover {
+      border: 2px grey solid;
+      background: transparent;
+      color: #fff;
+    }
+  }
+`
+const InputCheckBox = styled.input`
+  position: relative;
+  margin: 2px;
+  margin-right: 5px;
+  top: 2px;
+  outline: 2px solid #f7e625;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  width: 12px !important;
+  height: 12px !important;
+  box-shadow: none;
+  font-size: 2em;
+  transition: all 0.3s ease;
+  &:checked {
+    background: #f7e625;
+    outline: 2px solid transparent;
   }
 `
 
 const MessageModal = props => {
   const message = useContext(MessageContext)
+  const [termsAccepted, setTermsAccepted] = useState(false)
 
   return (
     <>
-      <BlurredBackground isVisible={message.isOpen} toggleModal={message.toggleMessageBox}/>
-      <ContactBoxWrapper>
+      <BlurredBackground isVisible={message.isOpen}>
+        <ContactBoxWrapper onClick={message.toggleMessageBox} />
         <ContactForm isVisible={message.isOpen}>
           <CloseForm onClick={message.toggleMessageBox}>X</CloseForm>
           <div>
-            <h2> Wyślij nam wiadomość</h2>
-            <div className="form-group">
-              <label className="form-label" for="name">
-                Imię i nazwisko
-              </label>
+            <Header> Wyślij nam wiadomość</Header>
+            <RowWrapper>
+              <Label for="name">Imię</Label>
               <Input
                 type="text"
-                className="form-control"
                 id="name"
                 name="name"
-                placeholder="Imię i naziwsko"
+                className="form-control"
+                placeholder="Podaj imię"
                 tabindex="1"
                 required
               />
-            </div>
-            <div className="form-group">
-              <label className="form-label" for="email">
-                E-mail
-              </label>
+            </RowWrapper>
+            <RowWrapper>
+              <Label for="email">E-mail</Label>
               <Input
                 type="email"
-                className="form-control"
                 id="email"
                 name="email"
-                placeholder="Twój e-mail"
+                className="form-control"
+                placeholder="Podaj swój e-mail. Na ten adres wyślemy odpowiedź."
                 tabindex="2"
                 required
               />
-            </div>
-            <div className="form-group">
-              <label className="form-label" for="message">
-                Wiadomość
-              </label>
+            </RowWrapper>
+            <RowWrapper >
+              <Label for="message">Wiadomość</Label>
               <TextArea
                 rows="5"
                 cols="50"
                 className="form-control"
-                id="msg"
-                name="msg"
+                id="message"
+                name="message"
                 placeholder="Wiadomość..."
                 tabindex="4"
                 required
               ></TextArea>
-            </div>
-            <div className="form-group">
-              <p>
-                <input type="checkbox" required name="terms" />
+            </RowWrapper>
+            <div>
+              <Paragraph>
+                <InputCheckBox
+                  type="checkbox"
+                  required
+                  name="terms"
+                  onClick={() => setTermsAccepted(!termsAccepted)}
+                />
                 Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą
                 o ochronie danych osobowych w związku z wysłaniem zapytania
                 przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
@@ -125,16 +193,16 @@ const MessageModal = props => {
                 poprawiania, żądania zaprzestania ich przetwarzania.
                 Administratorem danych osobowych jest d4 studio z siedzibą w
                 Wołowie.
-              </p>
+              </Paragraph>
             </div>
             <div className="text-center">
-              <button type="submit" className="button-main">
+              <ContactButton type="submit" disabled={!termsAccepted}>
                 Wyślij wiadomość
-              </button>
+              </ContactButton>
             </div>
           </div>
         </ContactForm>
-      </ContactBoxWrapper>
+      </BlurredBackground>
     </>
   )
 }
