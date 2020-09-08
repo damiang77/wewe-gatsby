@@ -6,7 +6,6 @@ import VideoPlayerContext from "../../../context/VideoPlayerContext"
 
 const VideoContentWrapper = styled.div`
   width: 100%;
-  height: 264px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -44,7 +43,7 @@ max-width:25%;
 
 const HeaderText = styled.h3`
 position: absolute;
-font-size: 20px;
+font-size: 14px;
 text-shadow: 0 3px 6px rgba(0,0,0,.26);
 color: yellow;
 transition: all 0.4s ease;
@@ -54,7 +53,7 @@ opacity: ${({ hovered }) => (hovered ? "1" : "0")};
 `
 const DescriptionText = styled.p`
 position: absolute;
-font-size: 14px;
+font-size: 12px;
 font-weight: 700;
 color: white;
 text-align: center;
