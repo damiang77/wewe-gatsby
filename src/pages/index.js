@@ -14,6 +14,7 @@ import Offers from "../components/offers/offers"
 import HowWeWork from "../components/howWeWork/howWeWork"
 import MessageModal from "../components/messageModal"
 import VideoPlayer from "../components/videoPlayer"
+import TeamComponent from "../components/team/TeamComponent"
 
 const IndexPage = () => {
   useEffect(() => {}, [])
@@ -29,6 +30,7 @@ const IndexPage = () => {
       <Offers/>
       <Videos />
       <HowWeWork/>
+      <TeamComponent/>
     </>
   )
 }
