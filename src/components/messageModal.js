@@ -87,6 +87,7 @@ const ContactButton = styled.button`
   border-radius: 30px;
   padding: 3px 15px;
   border: 2px #f7e625 solid;
+  color: #f7e625;
   cursor: pointer;
   font-size: 16px;
   color: "#f7e625";

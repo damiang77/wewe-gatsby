@@ -22,7 +22,7 @@ const HowWeWorkContent = () => {
   
 
     return (
-        <Container style={{ paddingLeft: 0, paddingRight: 0 }}> 
+        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}> 
             <Row className="no-gutters">
                 {columns.map((item)=>{
                     return <SingleColumn data={item}/>

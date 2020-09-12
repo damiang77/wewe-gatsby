@@ -15,6 +15,8 @@ import HowWeWork from "../components/howWeWork/howWeWork"
 import MessageModal from "../components/messageModal"
 import VideoPlayer from "../components/videoPlayer"
 import TeamComponent from "../components/team/TeamComponent"
+import ContactForm from "../components/ContactForm"
+import Footer from "../components/Footer"
 
 const IndexPage = () => {
   useEffect(() => {}, [])
@@ -31,6 +33,8 @@ const IndexPage = () => {
       <Videos />
       <HowWeWork/>
       <TeamComponent/>
+      <ContactForm/>
+      <Footer/>
     </>
   )
 }

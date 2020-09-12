@@ -12,7 +12,7 @@ font-family: 'Lato', sans-serif;
 color: white;
 font-size:18px;
 font-weight: 700;
-margin-top: 10px;
+margin-top: 12px;
 
 `
 

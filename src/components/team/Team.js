@@ -4,6 +4,8 @@ import { Container, Row, Col } from "react-bootstrap"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import TeamMember from "./TeamMember"
+import { Link } from "gatsby"
+import arrow from "../../images/arrow.svg"
 
 const TeamWrapper = styled.div`
   height: 100vh;
@@ -12,6 +14,11 @@ const TeamWrapper = styled.div`
   padding: 0;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  & a {
+      &:hover{
+          text-decoration: none;
+      }
+  }
 `
 const Heading = styled.h2`
   font-family: "Righteous", cursive;
@@ -27,6 +34,32 @@ const Description = styled.p`
   margin: 0;
   margin-top: -10px;
   padding: 0;
+`
+const ColCustom = styled(Col)`
+width: 100%;
+display: flex;
+justify-content:center;
+padding-top: 2rem;
+`
+const LinkWrapper = styled.div`
+  margin-top: 40px;
+  width: 130px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none !important;
+    color: #f7e625;
+  }
+  &:after {
+    content: url(${arrow});
+    position: absolute;
+    top: 0;
+    right: -30px;
+  }
 `
 
 const Team = () => {
@@ -76,31 +109,31 @@ const Team = () => {
       name: "Grzegorz Dorochowicz",
       job: "VFX Efekty specjalne",
       skills: ["Animacja 3D", "CGI", "Green screen"],
-      photo: data.f1.childImageSharp.fluid
+      photo: data.f1.childImageSharp.fluid,
     },
     mateusz: {
       name: "Mateusz Wagan",
       job: "Animacja, Montaż",
       skills: ["Storyboard", "Montaż", "Animacja 2D"],
-      photo: data.f2.childImageSharp.fluid
+      photo: data.f2.childImageSharp.fluid,
     },
     pawel: {
       name: "Pawel Marek",
       job: "Produkcja, Fotografia",
       skills: ["Kierownictwo", "Zdjęcia", "Montaż"],
-      photo: data.f3.childImageSharp.fluid
+      photo: data.f3.childImageSharp.fluid,
     },
     olaf: {
       name: "Olaf Bressa",
       job: "Kamera, Technikalia",
       skills: ["Kamera", "Obsługa sprzętu", "Światło"],
-      photo: data.f4.childImageSharp.fluid
+      photo: data.f4.childImageSharp.fluid,
     },
     piotr: {
       name: "Piotr Nowak",
       job: "Dron, Asystent kamery",
       skills: ["Hyperlapse", "Panning", "3D Panorama"],
-      photo: data.f5.childImageSharp.fluid
+      photo: data.f5.childImageSharp.fluid,
     },
   }
   return (
@@ -112,32 +145,29 @@ const Team = () => {
             <Description>poznaj nas</Description>
           </Col>
         </Row>
-        <Row style={{marginTop: "120px"}}>
+        <Row style={{ marginTop: "120px" }}>
           <Col>
-            <TeamMember
-              info={TeamInfo.grzegorz}
-            />
+            <TeamMember info={TeamInfo.grzegorz} />
           </Col>
           <Col>
-            <TeamMember
-              info={TeamInfo.mateusz}
-            />
+            <TeamMember info={TeamInfo.mateusz} />
           </Col>
           <Col>
-            <TeamMember
-              info={TeamInfo.pawel}
-            />
+            <TeamMember info={TeamInfo.pawel} />
           </Col>
           <Col>
-            <TeamMember
-              info={TeamInfo.olaf}
-            />
+            <TeamMember info={TeamInfo.olaf} />
           </Col>
           <Col>
-            <TeamMember
-              info={TeamInfo.piotr}
-            />
+            <TeamMember info={TeamInfo.piotr} />
           </Col>
+        </Row>
+        <Row>
+          <ColCustom>
+            <Link to="/about">
+              <LinkWrapper>więcej o nas</LinkWrapper>
+            </Link>
+          </ColCustom>
         </Row>
       </Container>
     </TeamWrapper>
