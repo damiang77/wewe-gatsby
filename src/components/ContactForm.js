@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import MsgImg from "../images/msg.jpg"
 
 const ContainerBackground = styled.div`
-  background: #1f2021;
+  background: #1B1B1B;
   padding-top: 4rem;
   padding-bottom: 4rem;
   width: 100%;
