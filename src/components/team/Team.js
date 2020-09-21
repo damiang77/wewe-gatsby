@@ -15,9 +15,9 @@ const TeamWrapper = styled.div`
   padding-top: 4rem;
   padding-bottom: 4rem;
   & a {
-      &:hover{
-          text-decoration: none;
-      }
+    &:hover {
+      text-decoration: none;
+    }
   }
 `
 const Heading = styled.h2`
@@ -36,10 +36,10 @@ const Description = styled.p`
   padding: 0;
 `
 const ColCustom = styled(Col)`
-width: 100%;
-display: flex;
-justify-content:center;
-padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
 `
 const LinkWrapper = styled.div`
   margin-top: 40px;
@@ -146,21 +146,10 @@ const Team = () => {
           </Col>
         </Row>
         <Row style={{ marginTop: "120px" }}>
-          <Col>
-            <TeamMember info={TeamInfo.grzegorz} />
-          </Col>
-          <Col>
-            <TeamMember info={TeamInfo.mateusz} />
-          </Col>
-          <Col>
-            <TeamMember info={TeamInfo.pawel} />
-          </Col>
-          <Col>
-            <TeamMember info={TeamInfo.olaf} />
-          </Col>
-          <Col>
-            <TeamMember info={TeamInfo.piotr} />
-          </Col>
+          {Object.keys(TeamInfo).map(function (member) {
+           return <Col><TeamMember info={TeamInfo[member]} /></Col>
+          }
+          )}
         </Row>
         <Row>
           <ColCustom>

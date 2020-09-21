@@ -130,7 +130,6 @@ const About = () => {
     }
   `)
  
-  console.log(data)
 const {header, description} = data.allStrapiAboutUs.nodes[0]
 
   return (

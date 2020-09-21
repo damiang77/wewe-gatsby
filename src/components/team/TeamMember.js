@@ -47,7 +47,7 @@ const Space = styled.span`
 
 const TeamMember = (props) => {
     const {name, job, skills, photo} = props.info;
-
+    console.log(props)
     return (
         <div>
             <CustomImg fluid={photo}/>
