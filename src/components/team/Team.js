@@ -146,7 +146,7 @@ const Team = () => {
           </Col>
         </Row>
         <Row style={{ marginTop: "120px" }}>
-          {Object.keys(TeamInfo).map(function (member) {
+          {Object.keys(TeamInfo).map((member)=> {
            return <Col><TeamMember info={TeamInfo[member]} /></Col>
           }
           )}
