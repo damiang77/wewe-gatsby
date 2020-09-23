@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 import arrow from "../../images/arrow.svg"
 
 const TeamWrapper = styled.div`
-  height: 100vh;
+  
   width: 100%;
   margin: 0;
   padding: 0;

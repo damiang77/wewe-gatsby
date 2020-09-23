@@ -12,6 +12,7 @@ import HeroVideo from "../components/HeroVideo/HeroVideo"
 import Companies from "../components/companies"
 import Offers from "../components/offers/offers"
 import HowWeWork from "../components/howWeWork/howWeWork"
+import WorkSteps from "../components/WorkSteps/WorkSteps"
 import MessageModal from "../components/messageModal"
 import VideoPlayer from "../components/videoPlayer"
 import TeamComponent from "../components/team/TeamComponent"
@@ -31,7 +32,7 @@ const IndexPage = () => {
       <Companies />
       <Offers/>
       <Videos />
-      <HowWeWork/>
+      <WorkSteps/>
       <TeamComponent/>
       <ContactForm/>
       <Footer/>
