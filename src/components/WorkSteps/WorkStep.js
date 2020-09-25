@@ -11,6 +11,10 @@ const NumberContainer = styled.div`
   text-align: center;
   color: #626366;
   font-size: 12px;
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+
 `
 const NumberCircle = styled.div`
   background: #f7e625;
