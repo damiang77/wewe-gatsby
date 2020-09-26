@@ -64,6 +64,64 @@ const MenuItem = styled.li`
     }
   }
 `
+const MenuItemDropdown = styled(MenuItem)`
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 24px;
+    right: -14px;
+    content: "";
+    border: solid #898989;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  &:hover {
+    > div {
+      display: block;
+    }
+  }
+`
+const StyledUl = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`
+const StyledLi = styled.li`
+  padding: 5px 10px 5px 15px;
+
+  & > a {
+    color: #898989;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  &:hover a {
+    text-decoration: none;
+    color: #f7e625;
+    cursor: pointer;
+  }
+`
+
+const DropDownContent = styled.div`
+  display: none;
+  position: absolute;
+  padding: 10px 0 10px 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 98%);
+  background-color: #393939;
+  width: 200px;
+  min-height: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  z-index: 1;
+`
+
 const RightMenu = styled.div`
   width: 200px;
   display: flex;
@@ -95,8 +153,8 @@ const ContactButton = styled.button`
   border: 2px #f7e625 solid;
   cursor: pointer;
   font-size: 12px;
-  color: ${({isActive}) => isActive ? "black" : "#f7e625"};
-  background: ${({isActive}) => isActive ? "#f7e625" : "transparent"};;
+  color: ${({ isActive }) => (isActive ? "black" : "#f7e625")};
+  background: ${({ isActive }) => (isActive ? "#f7e625" : "transparent")};
   transition: all 0.3s ease-out;
   &:hover {
     border: 2px transparent solid;
@@ -115,43 +173,62 @@ const Menu = () => {
   const message = useContext(MessageContext)
 
   return (
-   
-        <Container fluid>
-          <Row>
-            <NavigationWrapper>
-              <Navigation>
-                <LogoWrapper>
-                  <Link to="/">
-                    <Logo src={logo} alt="Logo wewe" />
-                  </Link>
-                </LogoWrapper>
-                <MenuItems>
-                  <MenuItem>
-                    <Link to="">O nas</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="">Oferta</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="">Portfolio</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link to="">Kontakt</Link>
-                  </MenuItem>
-                </MenuItems>
-                <RightMenu>
-                  <ContactButton onClick={message.toggleMessageBox} isActive={message.isOpen}>Wiadomość</ContactButton>
-                  <SocialWrapper>
-                    <Social src={fb} alt="Facebook" />
-                    <Social src={instagram} alt="Instagran" />
-                    <Social src={YouTube} alt="YouTube" />
-                  </SocialWrapper>
-                </RightMenu>
-              </Navigation>
-            </NavigationWrapper>
-          </Row>
-        </Container>
-
+    <Container fluid>
+      <Row>
+        <NavigationWrapper>
+          <Navigation>
+            <LogoWrapper>
+              <Link to="/">
+                <Logo src={logo} alt="Logo wewe" />
+              </Link>
+            </LogoWrapper>
+            <MenuItems>
+              <MenuItem>
+                <Link to="/plany-filmowe">O nas</Link>
+              </MenuItem>
+              <MenuItemDropdown>
+                <Link to="">Oferta</Link>
+                <DropDownContent>
+                  <StyledUl>
+                    <StyledLi>
+                      <Link to="/plany-filmowe" activeClassName="activelink">
+                        Organizacja planów filmowych i zdjęciowych
+                      </Link>
+                    </StyledLi>
+                    <StyledLi>Animacja 2D i ilustracje</StyledLi>
+                    <StyledLi>Storyboardy</StyledLi>
+                    <StyledLi>Fotografia</StyledLi>
+                    <StyledLi>Animacje 3D i CGI</StyledLi>
+                    <StyledLi>Social Media Content</StyledLi>
+                    <StyledLi>Live stream</StyledLi>
+                    <StyledLi>Ujęcia z drona</StyledLi>
+                  </StyledUl>
+                </DropDownContent>
+              </MenuItemDropdown>
+              <MenuItem>
+                <Link to="">Portfolio</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="">Kontakt</Link>
+              </MenuItem>
+            </MenuItems>
+            <RightMenu>
+              <ContactButton
+                onClick={message.toggleMessageBox}
+                isActive={message.isOpen}
+              >
+                Wiadomość
+              </ContactButton>
+              <SocialWrapper>
+                <Social src={fb} alt="Facebook" />
+                <Social src={instagram} alt="Instagran" />
+                <Social src={YouTube} alt="YouTube" />
+              </SocialWrapper>
+            </RightMenu>
+          </Navigation>
+        </NavigationWrapper>
+      </Row>
+    </Container>
   )
 }
 

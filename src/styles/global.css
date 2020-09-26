@@ -116,6 +116,10 @@ margin-bottom: 10px;
     color: #F7E625;
 }
 
+.activelink {
+  color: #F7E625 !important;
+}
+
 .video-iframe{
     position: relative;
     z-index:1010;
