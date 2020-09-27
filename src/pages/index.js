@@ -16,16 +16,14 @@ import WorkSteps from "../components/WorkSteps/WorkSteps"
 import MessageModal from "../components/messageModal"
 import VideoPlayer from "../components/videoPlayer"
 import TeamComponent from "../components/team/TeamComponent"
-import ContactForm from "../components/ContactForm"
-import Footer from "../components/Footer"
+import ContactForm from "../components/contactForm"
+import Footer from "../components/footer"
 
 const IndexPage = () => {
   useEffect(() => {}, [])
 
   return (
-    <>
-      <Menu />
-      <MessageModal/>
+    <Layout>
       <VideoPlayer/>
       <HeroVideo />
       <About />
@@ -35,8 +33,7 @@ const IndexPage = () => {
       <WorkSteps/>
       <TeamComponent/>
       <ContactForm/>
-      <Footer/>
-    </>
+    </Layout>
   )
 }
 

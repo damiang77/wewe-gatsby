@@ -28,7 +28,7 @@ const [change, setChange] = useState(false)
      
      return ()=>{
          setIsLoading(true)
-         console.log("cleaned")
+        
      }
  },[change])
 
@@ -56,7 +56,6 @@ const [change, setChange] = useState(false)
 
   function _onReady(event) {
     setIsLoading(false);
-    console.log("video player ready")
   }
 
   return (

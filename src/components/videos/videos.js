@@ -1,4 +1,3 @@
-// Normally you would import these like `import React, { Component } from 'react';`
 import React, { Component } from "react"
 import Shuffle from "shufflejs"
 import ReactDOM from "react-dom"

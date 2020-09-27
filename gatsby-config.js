@@ -32,7 +32,7 @@ module.exports = {
         apiURL: `https://api.gar.ovh`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`videos`, `how-we-works`],
-        singleTypes: [`about-us`]
+        singleTypes: [`about-us`,`organizacja-planow`]
       },
     },
     `gatsby-transformer-sharp`,

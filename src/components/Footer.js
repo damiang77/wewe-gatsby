@@ -15,7 +15,6 @@ const SocialWrapper = styled.div`
 `
 
 const Social = styled.img`
-margin-top: 24px;
   flex: none;
   transition: fill 0.25s;
   width: 18px;
@@ -30,6 +29,8 @@ margin-top: 24px;
 
 const Background = styled.div`
   background: #393939;
+  padding-top:20px;
+  padding-bottom: 20px;
   color: grey;
   width: 100%;
   text-align: center;
@@ -40,7 +41,6 @@ const Background = styled.div`
 `
 const Logo = styled.img`
 margin-left: 10px;
-  margin-top: 26px;
   width: 50px;
   height: 14px;
 `

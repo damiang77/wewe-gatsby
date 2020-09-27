@@ -39,7 +39,7 @@ const LogoWrapper = styled.div`
   height: 100%;
 `
 const MenuItems = styled.ul`
-  width: 320px;
+  min-width: 380px;
   max-width: 500px;
   display: flex;
   align-items: center;
@@ -112,7 +112,7 @@ const DropDownContent = styled.div`
   position: absolute;
   padding: 10px 0 10px 0;
   bottom: 0;
-  left: 50%;
+ left:40px;
   transform: translate(-50%, 98%);
   background-color: #393939;
   width: 200px;
@@ -130,14 +130,13 @@ const RightMenu = styled.div`
   height: 100%;
 `
 const Logo = styled.img`
-  margin-top: 24px;
+
   width: 100px;
   height: 28px;
 `
 const Social = styled.img`
   flex: none;
   transition: fill 0.25s;
-  margin-top: 24px;
   width: 24px;
   height: 24px;
 
@@ -195,13 +194,13 @@ const Menu = () => {
                         Organizacja planów filmowych i zdjęciowych
                       </Link>
                     </StyledLi>
-                    <StyledLi>Animacja 2D i ilustracje</StyledLi>
-                    <StyledLi>Storyboardy</StyledLi>
-                    <StyledLi>Fotografia</StyledLi>
-                    <StyledLi>Animacje 3D i CGI</StyledLi>
-                    <StyledLi>Social Media Content</StyledLi>
-                    <StyledLi>Live stream</StyledLi>
-                    <StyledLi>Ujęcia z drona</StyledLi>
+                    <StyledLi><Link to="/">Animacja 2D i ilustracje</Link></StyledLi>
+                    <StyledLi><Link to="/">Storyboardy</Link></StyledLi>
+                    <StyledLi><Link to="/">Fotografia</Link></StyledLi>
+                    <StyledLi><Link to="/">Animacje 3D i CGI</Link></StyledLi>
+                    <StyledLi><Link to="/">Social Media Content</Link></StyledLi>
+                    <StyledLi><Link to="/">Live stream</Link></StyledLi>
+                    <StyledLi><Link to="/">Ujęcia z drona</Link></StyledLi>
                   </StyledUl>
                 </DropDownContent>
               </MenuItemDropdown>
