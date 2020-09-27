@@ -15,12 +15,31 @@ import after from "../images/about-after.png"
 
 const ContainerFluid = styled(Container)`
   background: #1b1b1b;
-  padding-top: 100px;
+  position: relative;
+  padding-top: ${({padding}) => padding ? "100px" : "0px"};
+`
+
+const CustomContainer = styled(Container)`
+  position: relative;
+  background: #1b1b1b;
+  &:before {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    content: "";
+    width: 1300px;
+    height: 120%;
+    background: black;
+  }
 `
 
 const PlayerWrapper = styled.div`
   width: 100%;
   margin-top: 2rem;
+  z-index: 2;
+  position: relative;
 `
 
 const RowMargin = styled(Row)`
@@ -29,7 +48,7 @@ const RowMargin = styled(Row)`
 
 const MainTextHeader = styled.h2`
   font-family: "Righteous", cursive;
-  padding:10px;
+  padding: 10px;
   margin-top: 1rem;
   text-align: center;
   font-style: normal;
@@ -37,9 +56,21 @@ const MainTextHeader = styled.h2`
   font-size: 48px;
   line-height: 60px;
   color: #ffffff;
+position: relative;
+  &:after{
+    position: absolute;
+    content: '';
+    width: 100px;
+    height: 5px;
+    bottom: -10px;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    background: #f7e625;
+  }
 `
 const Colored = styled.span`
-color: #F7E625;
+  color: #f7e625;
 `
 const MainTextDescription = styled.p`
   font-family: "Lato", sans-serif;
@@ -49,11 +80,11 @@ const MainTextDescription = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 29px;
-  color: #BDBDBD;
+  color: #bdbdbd;
 `
 const ImgCustom = styled(Img)`
-position: relative;
-z-index:2;
+  position: relative;
+  z-index: 2;
 `
 const ImgWrapper = styled.div`
   position: relative;
@@ -72,7 +103,8 @@ const TextDescription = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 29px;
-  color: #BDBDBD;
+  color: #bdbdbd;
+  margin-bottom: 70px;
 `
 
 const IndexPage = ({ data }) => {
@@ -84,8 +116,8 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Organizacja" description="" />
-      <ContainerFluid fluid>
+      <SEO title={content.header} description="" />
+      <ContainerFluid fluid padding>
         <Row>
           <Container>
             <Row>
@@ -95,6 +127,8 @@ const IndexPage = ({ data }) => {
             </Row>
           </Container>
         </Row>
+      </ContainerFluid>
+      <ContainerFluid fluid>
         <Row>
           <Container>
             <Row>
@@ -104,6 +138,12 @@ const IndexPage = ({ data }) => {
                 </PlayerWrapper>
               </Col>
             </Row>
+          </Container>
+        </Row>
+      </ContainerFluid>
+      <CustomContainer fluid>
+        <Row>
+          <Container>
             <RowMargin>
               <Col xl={6}>
                 <ImgWrapper>
@@ -114,7 +154,10 @@ const IndexPage = ({ data }) => {
                 </ImgWrapper>
               </Col>
               <Col xl={6}>
-                <MainTextHeader>{content.header2}<Colored>.</Colored></MainTextHeader>
+                <MainTextHeader>
+                  {content.header2}
+                  <Colored>.</Colored>
+                </MainTextHeader>
                 <MainTextDescription>{content.description}</MainTextDescription>
               </Col>
             </RowMargin>
@@ -127,6 +170,8 @@ const IndexPage = ({ data }) => {
             )}
           </Container>
         </Row>
+      </CustomContainer>
+      <ContainerFluid fluid>
         <Row>
           <ContactForm />
         </Row>
@@ -163,9 +208,3 @@ export default props => (
   />
 )
 
-/*
-
-font-family: 'Lato', sans-serif;
-font-family: 'Righteous', cursive;
-
-*/

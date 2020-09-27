@@ -36,15 +36,15 @@ const Button = styled.div`
   background: transparent;
   border: 0;
   border-left: ${props =>
-    props.active ? "4px solid yellow" : "4px solid transparent"};
-  color: ${props => (props.active ? "yellow" : "white")};
+    props.active ? "4px solid #F7E625" : "4px solid transparent"};
+  color: ${props => (props.active ? "#F7E625" : "white")};
   margin: 1rem 0 1rem 0;
   font-weight: 400;
   background: ${props =>
     props.active ? "rgba(255,255,255,0.1)" : "transparent"};
 
   &:hover {
-    color: yellow;
+    color: #F7E625;
   }
   padding: 10px 0px 10px 30px;
   width: 100%;
