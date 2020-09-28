@@ -56,7 +56,7 @@ const MenuItem = styled.li`
   margin: 0;
   & > a {
     color: #898989;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
     text-decoration: none;
     &:hover {
