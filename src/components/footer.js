@@ -113,6 +113,8 @@ const Footer = () => {
           <CustomRow>
             <Col xl={3}>
               <Logo src={logo} />
+              <Address margin>+48 506 312 321</Address>
+              <Address >biuro@wewe.pl</Address>
               <Address margin>Powązkowska 59a</Address>
               <Address>01-728 Warszawa</Address>
             </Col>
