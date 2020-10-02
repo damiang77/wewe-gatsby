@@ -4,6 +4,9 @@ import { Container, Row } from "react-bootstrap"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import logo from "../images/logo.png"
+import InstagramIcon from "../components/icons/instagramIcon"
+import FbIcon from "../components/icons/fbIcon"
+import YtIcon from "../components/icons/ytIcon"
 import fb from "../images/fb.svg"
 import instagram from "../images/in.svg"
 import YouTube from "../images/yt.svg"
@@ -219,9 +222,9 @@ const Menu = () => {
                 Wiadomość
               </ContactButton>
               <SocialWrapper>
-                <Social src={fb} alt="Facebook" />
-                <Social src={instagram} alt="Instagran" />
-                <Social src={YouTube} alt="YouTube" />
+                <FbIcon className="social-icon"/>
+                <InstagramIcon className="social-icon"/>
+               <YtIcon className="social-icon"/>
               </SocialWrapper>
             </RightMenu>
           </Navigation>
