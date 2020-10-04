@@ -86,6 +86,10 @@ const MenuItemDropdown = styled(MenuItem)`
       display: block;
     }
   }
+  &:hover:after{
+    border: solid #f7e625;
+    border-width: 0 2px 2px 0;
+  }
 `
 const StyledUl = styled.ul`
   list-style-type: none;
@@ -115,7 +119,7 @@ const DropDownContent = styled.div`
   position: absolute;
   padding: 10px 0 10px 0;
   bottom: 0;
- left:40px;
+  left: 40px;
   transform: translate(-50%, 98%);
   background-color: #393939;
   width: 200px;
@@ -133,7 +137,6 @@ const RightMenu = styled.div`
   height: 100%;
 `
 const Logo = styled.img`
-
   width: 100px;
   height: 28px;
 `
@@ -197,13 +200,27 @@ const Menu = () => {
                         Organizacja planów filmowych i zdjęciowych
                       </Link>
                     </StyledLi>
-                    <StyledLi><Link to="/">Animacja 2D i ilustracje</Link></StyledLi>
-                    <StyledLi><Link to="/">Storyboardy</Link></StyledLi>
-                    <StyledLi><Link to="/">Fotografia</Link></StyledLi>
-                    <StyledLi><Link to="/">Animacje 3D i CGI</Link></StyledLi>
-                    <StyledLi><Link to="/">Social Media Content</Link></StyledLi>
-                    <StyledLi><Link to="/">Live stream</Link></StyledLi>
-                    <StyledLi><Link to="/">Ujęcia z drona</Link></StyledLi>
+                    <StyledLi>
+                      <Link to="/">Animacja 2D i ilustracje</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Storyboardy</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Fotografia</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Animacje 3D i CGI</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Social Media Content</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Live stream</Link>
+                    </StyledLi>
+                    <StyledLi>
+                      <Link to="/">Ujęcia z drona</Link>
+                    </StyledLi>
                   </StyledUl>
                 </DropDownContent>
               </MenuItemDropdown>
@@ -222,9 +239,9 @@ const Menu = () => {
                 Wiadomość
               </ContactButton>
               <SocialWrapper>
-                <FbIcon className="social-icon"/>
-                <InstagramIcon className="social-icon"/>
-               <YtIcon className="social-icon"/>
+                <FbIcon className="social-icon" />
+                <InstagramIcon className="social-icon" />
+                <YtIcon className="social-icon" />
               </SocialWrapper>
             </RightMenu>
           </Navigation>
