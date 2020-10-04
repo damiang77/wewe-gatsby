@@ -85,7 +85,7 @@ const Video = props => {
 
 
   return (
-    <div lg="3" className="photo-item" data-groups={categories}>
+    <div className="photo-item" data-groups={categories}>
 
      <VideoContentWrapper>
         <StyledImg
