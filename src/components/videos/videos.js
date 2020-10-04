@@ -8,7 +8,7 @@ import { Container, Row, Col } from "react-bootstrap"
 
 const Background = styled.div`
   background-color: #1f2021;
-  min-height: 400px;
+ 
   width: 100%;
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -120,7 +120,7 @@ class Videos extends Component {
 
     return (
       <Background>
-        <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
+        <Container fluid>
           <Row>
             <Container>
               <Row>
