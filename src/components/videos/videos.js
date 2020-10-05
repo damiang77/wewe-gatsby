@@ -65,7 +65,7 @@ const Description = styled.p`
 
 class Videos extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       idActiveTab: 0,
@@ -96,19 +96,39 @@ class Videos extends Component {
     this.shuffle = null
   }
 
+  filterVideosBy = (group) =>{
+    this.shuffle.filter(element => {
+      return element.dataset.groups.includes(group)
+    })
+  }
+
   handleFilterAll = () => {
     this.setState({ idActiveTab: 0 }, () => {
-      this.shuffle.filter(element => {
-        return element.dataset.groups.includes("wszystko")
-      })
+     this.filterVideosBy("wszystko")
     })
   }
 
   handleFilterMusicClips = () => {
     this.setState({ idActiveTab: 1 }, () => {
-      this.shuffle.filter(element => {
-        return element.dataset.groups.includes("reklama")
-      })
+      this.filterVideosBy("teledysk")
+    })
+  }
+
+  handleFilterEventClips = () => {
+    this.setState({ idActiveTab: 1 }, () => {
+      this.filterVideosBy("event")
+    })
+  }
+
+  handleFilterDocumentClips = () => {
+    this.setState({ idActiveTab: 1 }, () => {
+      this.filterVideosBy("dokument")
+    })
+  }
+
+  handleFilterComercialClips = () => {
+    this.setState({ idActiveTab: 1 }, () => {
+      this.filterVideosBy("reklama")
     })
   }
 
@@ -143,20 +163,20 @@ class Videos extends Component {
                   Teledyski
                 </SelectButton>
                 <SelectButton
-                  onClick={this.handleFilterMusicClips}
+                  onClick={this.handleFilterEventClips}
                   isSelected={this.state.idActiveTab === 2}
                 >
                   Eventy
                 </SelectButton>
                 <SelectButton
-                  onClick={this.handleFilterMusicClips}
+                  onClick={this.handleFilterDocumentClips}
                   isSelected={this.state.idActiveTab === 3}
                 >
                   Dokument
                 </SelectButton>
 
                 <SelectButton
-                  onClick={this.handleFilterMusicClips}
+                  onClick={this.handleFilterComercialClips}
                   isSelected={this.state.idActiveTab === 4}
                 >
                   Promocje
