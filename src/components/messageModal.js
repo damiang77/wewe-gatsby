@@ -23,10 +23,12 @@ const ContactForm = styled.form`
   background: #1f2021;
   position: relative;
   z-index: 1002;
-  display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
+  display: flex;
   border-radius: 15px;
   padding: 25px;
   color: #fff;
+  transition: transform 0.6s ease-out;
+  transform: translateY(${({ isVisible }) => (isVisible ? "0px" : "-600px")});
 `
 const CloseForm = styled.div`
   position: absolute;
@@ -110,18 +112,18 @@ const ContactButton = styled.button`
 `
 const InputCheckBox = styled.input`
   position: relative;
-  margin: 2px;
-  margin-right: 5px;
-  top: 2px;
+  margin-right: 8px;
+  margin: 5px;
+  padding: 0px;
+  top: 5px;
   outline: 2px solid #f7e625;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
-  width: 12px !important;
-  height: 12px !important;
+  width: 10px;
+  height: 10px;
   box-shadow: none;
-  font-size: 2em;
   transition: all 0.3s ease;
   &:checked {
     background: #f7e625;
@@ -168,7 +170,7 @@ const MessageModal = props => {
             <RowWrapper >
               <Label for="message">Wiadomość</Label>
               <TextArea
-                rows="5"
+                rows="4"
                 cols="50"
                 className="form-control"
                 id="message"
@@ -184,6 +186,7 @@ const MessageModal = props => {
                   type="checkbox"
                   required
                   name="terms"
+                  value={termsAccepted}
                   onClick={() => setTermsAccepted(!termsAccepted)}
                 />
                 Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą
