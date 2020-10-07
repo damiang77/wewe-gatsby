@@ -27,7 +27,7 @@ const ContactForm = styled.form`
   border-radius: 15px;
   padding: 25px;
   color: #fff;
-  transition: transform 0.6s ease-out;
+  transition: transform 0.9s cubic-bezier(.93,-0.38,0,1.47);
   transform: translateY(${({ isVisible }) => (isVisible ? "0px" : "-600px")});
 `
 const CloseForm = styled.div`
@@ -78,7 +78,7 @@ const Header = styled.h2`
   font-size: 32px;
   font-family: "Righteous", cursive;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `
 
 const Paragraph = styled.p`
