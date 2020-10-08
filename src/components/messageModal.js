@@ -28,7 +28,7 @@ const ContactForm = styled.form`
   padding: 25px;
   color: #fff;
   transition: transform 0.9s cubic-bezier(.93,-0.38,0,1.47);
-  transform: translateY(${({ isVisible }) => (isVisible ? "0px" : "-600px")});
+  transform: translateY(${({ isVisible }) => (isVisible ? "0px" : "-700px")});
 `
 const CloseForm = styled.div`
   position: absolute;
