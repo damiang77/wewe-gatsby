@@ -13,7 +13,7 @@ const TeamWrapper = styled.div`
   margin: 0;
   padding: 0;
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
   & a {
     &:hover {
       text-decoration: none;
@@ -34,12 +34,6 @@ const Description = styled.p`
   margin: 0;
   margin-top: -10px;
   padding: 0;
-`
-const ColCustom = styled(Col)`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 2rem;
 `
 const LinkWrapper = styled.div`
   margin-top: 40px;
@@ -145,19 +139,13 @@ const Team = () => {
             <Description>poznaj nas</Description>
           </Col>
         </Row>
-        <Row style={{ marginTop: "120px" }}>
+        <Row style={{ marginTop: "60px" }}>
           {Object.keys(TeamInfo).map((member)=> {
            return <Col><TeamMember info={TeamInfo[member]} /></Col>
           }
           )}
         </Row>
-        <Row>
-          <ColCustom>
-            <Link to="/about">
-              <LinkWrapper>więcej o nas</LinkWrapper>
-            </Link>
-          </ColCustom>
-        </Row>
+
       </Container>
     </TeamWrapper>
   )

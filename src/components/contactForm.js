@@ -1,53 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Container, Row, Col } from "react-bootstrap"
-import MsgImg from "../images/msg.jpg"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 const ContainerBackground = styled.div`
-  background: #1B1B1B;
+  background: #1b1b1b;
   padding-top: 4rem;
   padding-bottom: 4rem;
   width: 100%;
   color: #ffffff;
 `
 
-
-
 const CustomRow = styled(Row)`
-padding-top: 4rem;
+  padding-top: 4rem;
 `
 
-const LinkRow = styled.div`
-font-size: 24px;
-display:block;
-&:first-of-type{
-margin-bottom: 80px;
-}
-`
 const Link = styled.a`
-
-color: #fff;
-font-size: 24px;
-font-weight: 700;
-&:hover{
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  &:hover {
     color: #f7e625;
     text-decoration: none;
-}
+  }
 `
 
-const ColBackground = styled.div`
-background: url(${MsgImg});
-width: 100%;
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-  background-position: center center;
-  background-size: cover;
-  margin:0;
-  padding-left:0;
-  padding-right: 0;
-`
 const Heading = styled.h2`
   font-family: "Righteous", cursive;
   font-size: 48px;
@@ -122,9 +100,49 @@ const ContactButton = styled.button`
     }
   }
 `
+const Paragraph = styled.p`
+  font-size: 12px;
+  line-height: 1.5;
+  color: #495057;
+  text-align: justify;
+`
+const InputCheckBox = styled.input`
+  position: relative;
+  bottom: -4px;
+  margin: 2px;
+  margin-right: 5px;
+  padding: 0px;
+  outline: 2px solid #f7e625;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  &:focus {
+    outline-offset: 0px;
+  }
+  &:checked {
+    background: #f7e625;
+    outline: 2px solid transparent;
+  }
+`
 
 const ContactForm = () => {
-
+  const data = useStaticQuery(graphql`
+    query Images2 {
+      image: file(relativePath: { eq: "team2.jpg" }) {
+        id
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  const [termsAccepted, setTermsAccepted] = useState(false)
   return (
     <Container fluid>
       <Row>
@@ -138,18 +156,10 @@ const ContactForm = () => {
             </Row>
             <CustomRow>
               <Col>
-              <ColBackground>
-            <div className="text-center">
-                <LinkRow>
-                E-mail: <Link href="mailto:biuro@wewe.pl">biuro@wewe.pl</Link>
-                </LinkRow>
-       
-              <LinkRow>
-              Telefon: <Link href="tel:+48506312321">+48 506 312 321</Link>
-              </LinkRow>
-            </div>
-              
-            </ColBackground>
+                <Img
+                  fluid={data.image.childImageSharp.fluid}
+                  alt="wewe team contact"
+                />
               </Col>
               <Col>
                 <form>
@@ -190,9 +200,26 @@ const ContactForm = () => {
                       required
                     ></TextArea>
                   </RowWrapper>
+                  <Paragraph>
+                    <InputCheckBox
+                      type="checkbox"
+                      required
+                      name="terms"
+                      value={termsAccepted}
+                      onClick={() => setTermsAccepted(!termsAccepted)}
+                    />
+                    Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z
+                    ustawą o ochronie danych osobowych w związku z wysłaniem
+                    zapytania przez formularz kontaktowy. Podanie danych jest
+                    dobrowolne, ale niezbędne do przetworzenia zapytania.
+                    Zostałem poinformowany, że przysługuje mi prawo dostępu do
+                    swoich danych, możliwości ich poprawiania, żądania
+                    zaprzestania ich przetwarzania. Administratorem danych
+                    osobowych jest wewe films.
+                  </Paragraph>
 
                   <div className="text-center">
-                    <ContactButton type="submit">
+                    <ContactButton type="submit" disabled={!termsAccepted}>
                       Wyślij wiadomość
                     </ContactButton>
                   </div>

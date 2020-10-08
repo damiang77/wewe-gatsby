@@ -27,7 +27,7 @@ const ContactForm = styled.form`
   border-radius: 15px;
   padding: 25px;
   color: #fff;
-  transition: transform 0.9s cubic-bezier(.93,-0.38,0,1.47);
+  transition: transform 0.9s cubic-bezier(0.93, -0.38, 0, 1.47);
   transform: translateY(${({ isVisible }) => (isVisible ? "0px" : "-700px")});
 `
 const CloseForm = styled.div`
@@ -41,7 +41,7 @@ const CloseForm = styled.div`
   cursor: pointer;
 `
 const RowWrapper = styled.div`
-padding-bottom:15px;
+  padding-bottom: 15px;
 `
 const Label = styled.label`
   font-size: 12px;
@@ -84,6 +84,8 @@ const Header = styled.h2`
 const Paragraph = styled.p`
   font-size: 12px;
   line-height: 1.5;
+  color: #495057;
+  text-align: justify;
 `
 const ContactButton = styled.button`
   border-radius: 30px;
@@ -112,19 +114,21 @@ const ContactButton = styled.button`
 `
 const InputCheckBox = styled.input`
   position: relative;
-  margin-right: 8px;
-  margin: 5px;
+  bottom: -4px;
+  margin: 2px;
+  margin-right: 5px;
   padding: 0px;
-  top: 5px;
   outline: 2px solid #f7e625;
+  width: 12px;
+  height: 12px;
+  transition: all 0.3s ease;
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   appearance: none;
-  width: 10px;
-  height: 10px;
-  box-shadow: none;
-  transition: all 0.3s ease;
+  &:focus {
+    outline-offset: 0px;
+  }
   &:checked {
     background: #f7e625;
     outline: 2px solid transparent;
@@ -167,7 +171,7 @@ const MessageModal = props => {
                 required
               />
             </RowWrapper>
-            <RowWrapper >
+            <RowWrapper>
               <Label for="message">Wiadomość</Label>
               <TextArea
                 rows="4"
@@ -195,8 +199,7 @@ const MessageModal = props => {
                 niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
                 przysługuje mi prawo dostępu do swoich danych, możliwości ich
                 poprawiania, żądania zaprzestania ich przetwarzania.
-                Administratorem danych osobowych jest d4 studio z siedzibą w
-                Wołowie.
+                Administratorem danych osobowych jest wewe films.
               </Paragraph>
             </div>
             <div className="text-center">
