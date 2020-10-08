@@ -145,7 +145,6 @@ const {header, description} = data.allStrapiAboutUs.nodes[0]
                   <Description>
                     {description}
                   </Description>
-                   <Link to="/about"><LinkWrapper>więcej o nas</LinkWrapper></Link>
                 </TextBlockWrapper>
               </Col>
               <Col>
