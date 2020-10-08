@@ -133,7 +133,7 @@ const About = () => {
 const {header, description} = data.allStrapiAboutUs.nodes[0]
 
   return (
-    <Background>
+    <Background id="onas">
       <Container fluid>
         <Row>
           <Container>

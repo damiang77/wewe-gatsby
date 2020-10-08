@@ -98,7 +98,7 @@ const Offers = () => {
   }
 
   return (
-    <div>
+    <div id="oferta">
       <StyledBackground>
         <Container>
           <Row>

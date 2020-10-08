@@ -144,7 +144,7 @@ const ContactForm = () => {
   `)
   const [termsAccepted, setTermsAccepted] = useState(false)
   return (
-    <Container fluid>
+    <Container fluid id="kontakt">
       <Row>
         <ContainerBackground>
           <Container>
