@@ -115,19 +115,19 @@ class Videos extends Component {
   }
 
   handleFilterEventClips = () => {
-    this.setState({ idActiveTab: 1 }, () => {
+    this.setState({ idActiveTab: 2 }, () => {
       this.filterVideosBy("event")
     })
   }
 
   handleFilterDocumentClips = () => {
-    this.setState({ idActiveTab: 1 }, () => {
+    this.setState({ idActiveTab: 3 }, () => {
       this.filterVideosBy("dokument")
     })
   }
 
   handleFilterComercialClips = () => {
-    this.setState({ idActiveTab: 1 }, () => {
+    this.setState({ idActiveTab: 4 }, () => {
       this.filterVideosBy("reklama")
     })
   }
@@ -139,7 +139,7 @@ class Videos extends Component {
     } = data
 
     return (
-      <Background>
+      <Background id="portfolio">
         <Container fluid>
           <Row>
             <Container>
