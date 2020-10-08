@@ -11,6 +11,7 @@ import fb from "../images/fb.svg"
 import instagram from "../images/in.svg"
 import YouTube from "../images/yt.svg"
 import MessageContext from "../context/messageContext"
+import { AnchorLink } from "gatsby-plugin-anchor-links"
 
 const NavigationWrapper = styled.nav`
   position: fixed;
@@ -62,6 +63,7 @@ const MenuItem = styled.li`
     font-weight: 700;
     font-size: 16px;
     text-decoration: none;
+    cursor: pointer;
     &:hover {
       color: #f7e625;
     }
@@ -86,7 +88,7 @@ const MenuItemDropdown = styled(MenuItem)`
       display: block;
     }
   }
-  &:hover:after{
+  &:hover:after {
     border: solid #f7e625;
     border-width: 0 2px 2px 0;
   }
@@ -189,10 +191,14 @@ const Menu = () => {
             </LogoWrapper>
             <MenuItems>
               <MenuItem>
-                <Link to="/plany-filmowe">O nas</Link>
+                <AnchorLink to="/#onas">
+                  O nas
+                </AnchorLink>
               </MenuItem>
               <MenuItemDropdown>
-                <Link to="">Oferta</Link>
+              <AnchorLink to="/#oferta">
+                  Oferta
+                </AnchorLink>
                 <DropDownContent>
                   <StyledUl>
                     <StyledLi>
@@ -225,10 +231,14 @@ const Menu = () => {
                 </DropDownContent>
               </MenuItemDropdown>
               <MenuItem>
-                <Link to="">Portfolio</Link>
+              <AnchorLink to="/#portfolio">
+                  Portfolio
+                </AnchorLink>
               </MenuItem>
               <MenuItem>
-                <Link to="">Kontakt</Link>
+              <AnchorLink to="/#kontakt">
+                  Kontakt
+                </AnchorLink>
               </MenuItem>
             </MenuItems>
             <RightMenu>
