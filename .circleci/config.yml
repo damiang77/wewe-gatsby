@@ -15,7 +15,7 @@ orbs:
 workflows:
   sample:
     jobs:
-      - node/test:
+      - node:
           version: '15.1'
           # after the node/test job completes, build the dist packages and save them to a workspace
           post-steps:
